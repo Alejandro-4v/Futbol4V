@@ -1,0 +1,24 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+
+.header-nav {
+    background-color: $base-color;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a {
+        @include no-style-large-text;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            font-size: 4rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+    }
+}

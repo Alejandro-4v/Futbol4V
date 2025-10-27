@@ -1,0 +1,7 @@
+@use "./variables.scss" as *;
+
+@mixin no-style-large-text {
+    font-size: 3rem;
+    text-decoration: none;
+    color: black;
+}
