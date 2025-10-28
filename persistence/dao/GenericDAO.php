@@ -9,6 +9,7 @@ abstract class GenericDAO
     protected PDO $conn;
     protected string $tableName;
     protected string $entityClass;
+    protected string $primaryKey;
 
     public function __construct(string $tableName, string $entityClass, string $primaryKey)
     {
@@ -23,7 +24,7 @@ abstract class GenericDAO
     // Obtiene todos los registros de una tabla y los mapea a objetos de la clase Entidad.
     public function obtenerTodos(): array
     {
-        $query = "SELECT * FROM {$this->tableName}";
+        $query = "SELECT * FROM {$this->tableName} ORDER BY {$this->primaryKey}";
 
         $stmt = $this->conn->query($query);
 
