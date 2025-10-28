@@ -16,6 +16,7 @@ abstract class GenericDAO
         $this->conn = PersistentManager::getInstance()->getConnection();
         $this->tableName = $tableName;
         $this->entityClass = $entityClass;
+        $this->primaryKey = $primaryKey;
     }
 
     // Método abstracto para guardar una entidad (INSERT o UPDATE).
