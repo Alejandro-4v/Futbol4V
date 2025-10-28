@@ -20,7 +20,7 @@ abstract class GenericDAO
     }
 
     // Método abstracto para guardar una entidad (INSERT o UPDATE).
-    abstract public function guardar(object $entity): void;
+    abstract public function guardar(): void;
 
     // Obtiene todos los registros de una tabla y los mapea a objetos de la clase Entidad.
     public function obtenerTodos(): array
