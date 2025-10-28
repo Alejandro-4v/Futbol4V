@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $pageTitle ?? 'Futbol' ?></title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="/futbol/assets/css/main.css">
 </head>
 
 <body>

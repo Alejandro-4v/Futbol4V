@@ -21,13 +21,11 @@ main {
     margin: 0 1rem 1rem 1rem;
     border-radius: 0.5rem;
 
-    height: 100%;
-    width: calc(100% - 2rem);
+    flex-grow: 1;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: space-around;
 
     background-color: $base-color;
 }
@@ -43,7 +41,7 @@ main {
     border-radius: 3rem;
     margin: 10rem;
     background-color: lighten($base-color, 10%);
-    
+
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -54,4 +52,32 @@ main {
     border: solid 0.5rem black;
 
     @include no-style-large-text;
+}
+
+.item-card {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-radius: 3rem;
+    margin: 2rem;
+    background-color: white;
+
+    box-sizing: border-box;
+
+    & > :not(:first-child):not(:last-child) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &:first-child {
+        padding-left: 2rem !important;
+    }
+
+    &:last-child {
+        padding-right: 2rem !important;
+    }
 }
