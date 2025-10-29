@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// ... requires ...
 require_once __DIR__ . '/../persistence/dao/GenericDAO.php';
 require_once __DIR__ . '/../persistence/dao/EquipoDAO.php';
 require_once __DIR__ . '/../persistence/dao/PartidoDAO.php';
@@ -51,9 +50,6 @@ foreach ($equipos as $equipo) {
 
 /** @var array<Partido> $partidos */
 $partidos = $partidoDAO->obtenerTodos();
-
-ob_start();
-?>
 
 ob_start();
 ?>
