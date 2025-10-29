@@ -8,13 +8,15 @@ class Equipo extends GenericDAO
     private ?int $id_equipo = null;
     private string $nombre;
     private string $estadio;
-    private string $primaryKey = 'id_equipo';
+    protected string $primaryKey = 'id_equipo';
 
     public function __construct(
         string $nombre, 
         string $estadio,
-        ?int $id_equipo = null // El ID puede ser null si es un nuevo equipo
+        ?int $id_equipo = null 
     ) {
+        parent::__construct('equipos', Equipo::class, 'id_equipo'); 
+
         $this->nombre = $nombre;
         $this->estadio = $estadio;
         $this->id_equipo = $id_equipo;

@@ -19,6 +19,8 @@ class Partido extends GenericDAO
         string $estadio_partido,
         ?int $id_partido = null // El ID puede ser null si es un nuevo partido
     ) {
+        parent::__construct('partidos', Partido::class, 'id_partido');
+        
         $this->id_partido = $id_partido;
         $this->id_equipo_local = $id_equipo_local;
         $this->id_equipo_visitante = $id_equipo_visitante;

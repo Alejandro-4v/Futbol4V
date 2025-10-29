@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once 'PersistentManager.php';
+require_once __DIR__ . '/../conf/PersistentManager.php';
 
 abstract class GenericDAO
 {
