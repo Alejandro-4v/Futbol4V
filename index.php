@@ -1,22 +1,11 @@
 <?php
 declare(strict_types=1);
 
-ob_start();
-?>
-<main>
-    <a href="/futbol/app/equipos.php" class="index-card">
-        Equipos
-    </a>
-    <a href="/futbol/app/partidos.php" class="index-card">
-        Partidos
-    </a>
-</main>
-<?php
-/** @var string $pageTitle */
-$pageTitle = 'Página Principal';
+require_once __DIR__ . '/utils/SessionHelper.php';
 
-/** @var string $content */
-$content = ob_get_clean();
+$targetUrl = SessionHelper::getTargetPage();
 
-require_once __DIR__ . '/templates/layout.php';
-?>
+header("Location: {$targetUrl}"); // Uso Location para redirigir
+exit;
+
+// Este fichero solo está para redirigir a la última página visitada o a inicio.php por defecto, nada más. Creo que era la solución más adecuada para guardar la última página visitada incluyendo inicio.php
