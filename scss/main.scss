@@ -56,18 +56,19 @@ main {
 
 .item-card {
     height: auto;
-    width: 70%;
+    width: 100%;
 
     display: flex;
     flex-direction: row;
     align-items: center;
 
     border-radius: 3rem;
-    margin: 2rem;
     background-color: white;
     padding: 1rem;
 
     box-sizing: border-box;
+
+    margin-top: 2rem;
 
     & > :not(:first-child):not(:last-child) {
         margin-left: auto;
@@ -90,4 +91,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    padding: 2rem;
 }
