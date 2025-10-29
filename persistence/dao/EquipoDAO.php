@@ -13,12 +13,20 @@ class Equipo extends GenericDAO
     protected string $primaryKey = 'id_equipo';
 
     public function __construct(
-        string $nombre = '', 
+        string $nombre = '',
         string $estadio = '',
-        ?int $id_equipo = null 
+        ?int $id_equipo = null
     ) {
-        parent::__construct('equipos', Equipo::class, 'id_equipo'); 
-
+        parent::__construct('equipos', Equipo::class, 'id_equipo');
+        if ($nombre !== '') {
+            $this->nombre = $nombre;
+        }
+        if ($estadio !== '') {
+            $this->estadio = $estadio;
+        }
+        if ($id_equipo !== null) {
+            $this->id_equipo = $id_equipo;
+        }
     }
 
     public function guardar(): void
@@ -31,10 +39,10 @@ class Equipo extends GenericDAO
             $stmt->bindValue(':estadio', $this->getEstadio());
             $stmt->execute();
             // Asignar el ID generado al objeto entidad
-            $this->setIdEquipo((int)$this->conn->lastInsertId());
+            $this->setIdEquipo((int) $this->conn->lastInsertId());
         } else {
             // Lógica para actualizar un equipo existente
-            $query = "UPDATE equipos SET nombre = :nombre, estadio = :estadio WHERE id_equipo = :id_equipo";
+            $query = "UPDATE equipos SET nombre = :nombre, estadio = :estadio WHERE nombre = :nombre";
             $stmt = $this->conn->prepare($query);
             $stmt->bindValue(':nombre', $this->getNombre());
             $stmt->bindValue(':estadio', $this->getEstadio());

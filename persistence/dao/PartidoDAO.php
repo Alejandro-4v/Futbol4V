@@ -27,6 +27,24 @@ class Partido extends GenericDAO
         ?int $id_partido = null // El ID puede ser null si es un nuevo partido
     ) {
         parent::__construct('partidos', Partido::class, 'id_partido');
+        if ($id_equipo_local !== 0) {
+            $this->id_equipo_local = $id_equipo_local;
+        }
+        if ($id_equipo_visitante !== 0) {
+            $this->id_equipo_visitante = $id_equipo_visitante;
+        }
+        if ($jornada !== 0) {
+            $this->jornada = $jornada;
+        }
+        if ($resultado !== '') {
+            $this->resultado = $resultado;
+        }
+        if ($estadio_partido !== '') {
+            $this->estadio_partido = $estadio_partido;
+        }
+        if ($id_partido !== null) {
+            $this->id_partido = $id_partido;
+        }
     }
 
     public function guardar(): void
