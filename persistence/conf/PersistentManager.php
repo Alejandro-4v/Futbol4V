@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const CREDENTIALS_PATH = __DIR__ . '/conf/credentials.json';
+const CREDENTIALS_PATH = __DIR__ . '/credentials.json';
 
 // Empleo un singleton para la gestión de la conexión a la BD
 // Lo he estructurado así para simular una práctica profesional cumpliendo con principios SOLID (y empleando PDO, que también me parecía interesnte )
