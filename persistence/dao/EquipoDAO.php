@@ -2,24 +2,23 @@
 declare(strict_types=1);
 
 // Defino la entidad Equipo, que representa un registro de la tabla 'equipos' y que a la vez dará contenido a templates/item_equipo.php
+
+
 class Equipo extends GenericDAO
 {
     // Las propiedades se llaman igual que las columnas de la BD (PDO::FETCH_CLASS)
-    private ?int $id_equipo = null;
-    private string $nombre;
-    private string $estadio;
+    protected ?int $id_equipo = null;
+    protected string $nombre;
+    protected string $estadio;
     protected string $primaryKey = 'id_equipo';
 
     public function __construct(
-        string $nombre, 
-        string $estadio,
+        string $nombre = '', 
+        string $estadio = '',
         ?int $id_equipo = null 
     ) {
         parent::__construct('equipos', Equipo::class, 'id_equipo'); 
 
-        $this->nombre = $nombre;
-        $this->estadio = $estadio;
-        $this->id_equipo = $id_equipo;
     }
 
     public function guardar(): void

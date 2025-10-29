@@ -12,11 +12,11 @@ class Partido extends GenericDAO
     private string $estadio_partido;
 
     public function __construct(
-        int $id_equipo_local,
-        int $id_equipo_visitante,
-        int $jornada,
-        string $resultado,
-        string $estadio_partido,
+        int $id_equipo_local = 0,
+        int $id_equipo_visitante = 0,
+        int $jornada = 0,
+        string $resultado = '',
+        string $estadio_partido = '',
         ?int $id_partido = null // El ID puede ser null si es un nuevo partido
     ) {
         parent::__construct('partidos', Partido::class, 'id_partido');
