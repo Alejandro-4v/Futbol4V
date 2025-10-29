@@ -11,10 +11,22 @@ $equipoDAO = new Equipo();
 $equipos = $equipoDAO->obtenerTodos();
 $pageTitle = 'Listado de Equipos';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $nombreEquipo = $_POST['nombreEquipo'];
+    $estadio = $_POST['estadio'];
+
+    $nuevoEquipo = new Equipo($nombreEquipo, $estadio);
+    $nuevoEquipo->guardar();
+
+    header('Location: equipos.php');
+    exit;
+}
+
 ob_start();
 ?>
 
-<main>
+<main class="with-list-content">
     <div class="vertical-list">
         <?php
         // Con la plantilla item_equipo.php y el RenderHelper renderizo cada equipo
@@ -23,6 +35,16 @@ ob_start();
         }
         ?>
     </div>
+
+    <!-- Formulario para crear un equipo -->
+
+    <form method="POST" action="equipos.php">
+        <label for="nombreEquipo">Nombre del Equipo:</label>
+        <input type="text" id="nombreEquipo" name="nombreEquipo" required>
+        <label for="estadio">Estadio:</label>
+        <input type="text" id="estadio" name="estadio" required>
+        <button type="submit">Crear Equipo</button>
+    </form>
 </main>
 
 <?php
