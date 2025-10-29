@@ -86,11 +86,27 @@ main {
 
 .vertical-list {
     width: 100%;
-    height: 100%;
+    height: auto;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     padding: 2rem;
+}
+
+.with-list-content {
+    margin: 0 1rem 1rem 1rem;
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $base-color;
 }
