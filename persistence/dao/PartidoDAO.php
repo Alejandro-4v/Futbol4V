@@ -1,15 +1,22 @@
 <?php
 declare(strict_types=1);
+require_once 'EquipoDAO.php';
+// Añado EquipoDAO aquí para luego poder devolver nombres de equipos desde PartidoDAO
+
 // Defino la entidad Partido, representa un registro de la tabla 'partidos' y que a la vez dará contenido a templates/item_partido.php
 class Partido extends GenericDAO
 {
     // Las propiedades se llaman igual que las columnas de la BD (PDO::FETCH_CLASS)
-    private ?int $id_partido = null;
-    private int $id_equipo_local;
-    private int $id_equipo_visitante;
-    private int $jornada;
-    private string $resultado;
-    private string $estadio_partido;
+    protected ?int $id_partido = null;
+    protected int $id_equipo_local;
+    protected int $id_equipo_visitante;
+    protected int $jornada;
+    protected string $resultado;
+    protected string $estadio_partido;
+
+    // Propiedades adicionales para los nombres de los equipos (no están en la BD)
+    protected string $nombre_local = '';
+    protected string $nombre_visitante = '';
 
     public function __construct(
         int $id_equipo_local = 0,
@@ -20,13 +27,6 @@ class Partido extends GenericDAO
         ?int $id_partido = null // El ID puede ser null si es un nuevo partido
     ) {
         parent::__construct('partidos', Partido::class, 'id_partido');
-        
-        $this->id_partido = $id_partido;
-        $this->id_equipo_local = $id_equipo_local;
-        $this->id_equipo_visitante = $id_equipo_visitante;
-        $this->jornada = $jornada;
-        $this->resultado = $resultado;
-        $this->estadio_partido = $estadio_partido;
     }
 
     public function guardar(): void
@@ -63,6 +63,30 @@ class Partido extends GenericDAO
             $stmt->execute();
         }
         // Leí que estos bindValue también se pueden llevar a cabo con un execute() y un array asociativo de valores, pero así queda más claro
+    }
+
+    // En /persistence/dao/PartidoDAO.php
+
+    // Reemplaza los dos getters por estas versiones:
+
+    public function setNombreLocal(string $nombreLocal): void
+    {
+        $this->nombre_local = $nombreLocal;
+    }
+
+    public function setNombreVisitante(string $nombreVisitante): void
+    {
+        $this->nombre_visitante = $nombreVisitante;
+    }
+
+    public function getNombreLocal(): string
+    {
+        return $this->nombre_local;
+    }
+
+    public function getNombreVisitante(): string
+    {
+        return $this->nombre_visitante;
     }
 
     public function getIdPartido(): ?int
