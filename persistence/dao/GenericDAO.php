@@ -39,4 +39,19 @@ abstract class GenericDAO
 
     // No existe delete porque sería dead code en este proyecto, sino también se declararía aquí 
 
+    public function buscarPorId(int $id): ?object
+    {
+        $query = "SELECT * FROM {$this->tableName} WHERE {$this->primaryKey} = :id LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Configura el modo de fetch para devolver un objeto de la clase que herede GenericDAO
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->entityClass);
+
+        /** @var object|null $entity */
+        $entity = $stmt->fetch();
+        return $entity === false ? null : $entity;
+    }
+
 }
