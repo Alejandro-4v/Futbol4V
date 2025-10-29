@@ -4,9 +4,9 @@
     </p>
 
     <h3>
-        <?= htmlspecialchars($nombre_local) ?> 
+        <?= htmlspecialchars($partido->getNombreLocal()) ?> 
         <span>vs</span> 
-        <?= htmlspecialchars($nombre_visitante) ?>
+        <?= htmlspecialchars($partido->getNombreVisitante()) ?>
     </h3>
 
     <p>
