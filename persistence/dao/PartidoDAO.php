@@ -83,10 +83,6 @@ class Partido extends GenericDAO
         // Leí que estos bindValue también se pueden llevar a cabo con un execute() y un array asociativo de valores, pero así queda más claro
     }
 
-    // En /persistence/dao/PartidoDAO.php
-
-    // Reemplaza los dos getters por estas versiones:
-
     public function setNombreLocal(string $nombreLocal): void
     {
         $this->nombre_local = $nombreLocal;
