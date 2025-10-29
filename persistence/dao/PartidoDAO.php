@@ -50,7 +50,7 @@ class Partido extends GenericDAO
                             jornada = :jornada, 
                             resultado = :resultado, 
                             estadio_partido = :estadio_partido 
-                        HERE id_partido = :id_partido";
+                        WHERE id_partido = :id_partido";
             $stmt = $this->conn->prepare($query);
             $stmt->bindValue(':id_equipo_local', $this->getIdEquipoLocal(), PDO::PARAM_INT);
             $stmt->bindValue(':id_equipo_visitante', $this->getIdEquipoVisitante(), PDO::PARAM_INT);
