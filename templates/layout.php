@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__ . '/../utils/SessionHelper.php';
+
+SessionHelper::startSession();
+
+SessionHelper::saveCurrentPage();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
